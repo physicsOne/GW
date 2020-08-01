@@ -5,7 +5,6 @@ for (var  i = 1; i <=16; i++){
         rank.classList+= "rank";
     battlefield.append(rank)
     for (var  a = 1; a <=16; a++){
-        console.log(i)
         switch (a){
             case 1 :
                 fileNumber = 'a';
@@ -57,8 +56,49 @@ for (var  i = 1; i <=16; i++){
                 break;
         }
         var file = document.createElement('div');
-            file.textContent =  fileNumber + i ;
-            file.classList += 'file'
+            //file.textContent =  fileNumber + i ;
+            file.classList += 'file '
         rank.append(file)
     }
 }
+/*
+for (var i = 0; i < 16; i+=2){
+    document.querySelectorAll(".file")[i].classList+=" alt-1"
+}
+for (var i = 1; i < 16; i+=2){
+    document.querySelectorAll(".file")[i].classList+=" alt-2"
+}
+for (var i = 16; i < 32; i+=2){
+    document.querySelectorAll(".file")[i].classList+=" alt-2"
+}
+for (var i = 17; i < 32; i+=2){
+    document.querySelectorAll(".file")[i].classList+=" alt-1"
+}
+for (var i = 32; i < 48; i+=2){
+    document.querySelectorAll(".file")[i].classList+=" alt-1"
+}
+for (var i = 33; i < 48; i+=2){
+    document.querySelectorAll(".file")[i].classList+=" alt-2"
+}
+for (var i = 48; i < 64; i+=2){
+    document.querySelectorAll(".file")[i].classList+=" alt-2"
+}
+for (var i = 49; i < 64; i+=2){
+    document.querySelectorAll(".file")[i].classList+=" alt-1"
+}
+for (var i = 64; i < 80; i+=2){
+    document.querySelectorAll(".file")[i].classList+=" alt-1"
+}
+for (var i = 65; i < 80; i+=2){
+    document.querySelectorAll(".file")[i].classList+=" alt-2"
+}
+for (var i = 80; i < 96; i+=2){
+    document.querySelectorAll(".file")[i].classList+=" alt-2"
+}
+for (var i = 96; i < 112; i+=2){
+    document.querySelectorAll(".file")[i].classList+=" alt-1"
+}
+for (var i = 64; i < 80; i+=2){
+    document.querySelectorAll(".file")[i].classList+=" alt-1"
+}
+*/
