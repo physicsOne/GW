@@ -1,77 +1,81 @@
 var battlefield = document.querySelector("#battlefield");
 var fileNumber;
 var fighterPfp = document.querySelector(".fighter-pfp");
-for (var  i = 1; i <=16; i++){  
-    var rank = document.createElement("div");
-        rank.classList+= "rank";
-    battlefield.append(rank)
-    for (var  a = 1; a <=16; a++){
-        switch (a){
-            case 1 :
-                fileNumber = 'a';
-                break;
-            case 2 :
-                fileNumber = 'b';
-                break;
-            case 3 :
-                fileNumber = 'c';
-                break;
-            case 4 :
-                fileNumber = 'd';
-                break;
-            case 5 :
-                fileNumber = 'e';
-                break;
-            case 6 :
-                fileNumber = 'f';
-                break;
-            case 7 :
-                fileNumber = 'g';
-                break;
-            case 8 :
-                fileNumber = 'h';
-                break;
-    case 9 :
-                fileNumber = 'i';
-                break
-            case 10 :
-                fileNumber = 'j';
-                break;
-            case 11 :
-                fileNumber = 'k';
-                break;
-            case 12 :
-                fileNumber = 'l';
-                break;
-            case 13 :
-                fileNumber = 'm';
-                break;
-            case 14 :
-                fileNumber = 'n';
-                break;
-            case 15 :
-                fileNumber = 'o';
-                break;
-            case 16 :
-                fileNumber = 'p';
-                break;
+function renewMap(){
+    for (var  i = 1; i <=16; i++){  
+        var rank = document.createElement("div");
+            rank.classList+= "rank";
+        battlefield.append(rank)
+        for (var  a = 1; a <=16; a++){
+            switch (a){
+                case 1 :
+                    fileNumber = 'a';
+                    break;
+                case 2 :
+                    fileNumber = 'b';
+                    break;
+                case 3 :
+                    fileNumber = 'c';
+                    break;
+                case 4 :
+                    fileNumber = 'd';
+                    break;
+                case 5 :
+                    fileNumber = 'e';
+                    break;
+                case 6 :
+                    fileNumber = 'f';
+                    break;
+                case 7 :
+                    fileNumber = 'g';
+                    break;
+                case 8 :
+                    fileNumber = 'h';
+                    break;
+        case 9 :
+                    fileNumber = 'i';
+                    break
+                case 10 :
+                    fileNumber = 'j';
+                    break;
+                case 11 :
+                    fileNumber = 'k';
+                    break;
+                case 12 :
+                    fileNumber = 'l';
+                    break;
+                case 13 :
+                    fileNumber = 'm';
+                    break;
+                case 14 :
+                    fileNumber = 'n';
+                    break;
+                case 15 :
+                    fileNumber = 'o';
+                    break;
+                case 16 :
+                    fileNumber = 'p';
+                    break;
+            }
+            var file = document.createElement('div');
+                file.textContent =  fileNumber + i ;
+                file.classList += 'file '
+            rank.append(file)
         }
-        var file = document.createElement('div');
-            file.textContent =  fileNumber + i ;
-            file.classList += 'file '
-        rank.append(file)
     }
 }
+renewMap();
 fighterPfp.addEventListener("click",function(e){
+    renewMap();
     e.target.id = 'selected-fighter';
     var fighterName = e.target.getAttribute("src");
     console.log(fighterName)
     battlefield.addEventListener("click",function(g){
+        g.target.textContent = ""
         var fighterPlace  = document.createElement("img");
             fighterPfp.src = fighterName;
-        g.target.append(fighterPfp);
-            //console.log()
-        //g,target.append
+            fighterPfp.classList += " pfp-icon";
+        g.target.append(fighterPfp);      
     })
 })
 /*
