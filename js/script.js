@@ -66,16 +66,18 @@ function renewMap(){
 }
 renewMap();
 fighterPfp.addEventListener("click",function(e){
-    renewMap();
     e.target.id = 'selected-fighter';
     var fighterName = e.target.getAttribute("src");
-    console.log(fighterName)
     battlefield.addEventListener("click",function(g){
-        g.target.textContent = ""
-        var fighterPlace  = document.createElement("img");
-            fighterPfp.src = fighterName;
-            fighterPfp.classList += " pfp-icon";
-        g.target.append(fighterPfp);      
+        console.log(g.target)
+        if(g.target.classList.contains("file")){
+            var fighterPlace  = document.createElement("img");
+                fighterPfp.src = fighterName;
+                fighterPfp.classList += " pfp-icon";
+            g.target.textContent = ""
+            g.target.append(fighterPfp);     
+            battlefield.removeEventListener("click",function(){}) ;
+        }
     })
 })
 /*
