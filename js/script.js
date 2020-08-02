@@ -69,7 +69,7 @@ fighterPfp.addEventListener("click",function(e){
     battlefield.addEventListener("click",function(g){
         var fighterPlace  = document.createElement("img");
             fighterPfp.src = fighterName;
-        g.target.append(fighterPfp)
+        g.target.append(fighterPfp);
             //console.log()
         //g,target.append
     })
