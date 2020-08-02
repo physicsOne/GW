@@ -1,5 +1,6 @@
 var battlefield = document.querySelector("#battlefield");
 var fileNumber;
+var fighterPfp = document.querySelector(".fighter-pfp");
 for (var  i = 1; i <=16; i++){  
     var rank = document.createElement("div");
         rank.classList+= "rank";
@@ -61,6 +62,18 @@ for (var  i = 1; i <=16; i++){
         rank.append(file)
     }
 }
+fighterPfp.addEventListener("click",function(e){
+    e.target.id = 'selected-fighter';
+    var fighterName = e.target.getAttribute("src");
+    console.log(fighterName)
+    battlefield.addEventListener("click",function(g){
+        var fighterPlace  = document.createElement("img");
+            fighterPfp.src = fighterName;
+        g.target.append(fighterPfp)
+            //console.log()
+        //g,target.append
+    })
+})
 /*
 for (var i = 0; i < 16; i+=2){
     document.querySelectorAll(".file")[i].classList+=" alt-1"

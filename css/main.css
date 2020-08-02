@@ -26,3 +26,11 @@
 h1{
     font-size: 320px;
     color : white;
+}
+#staging-area-1{
+    display: inline-block;
+}
+.fighter-pfp{
+    width: 20px;
+    height: 20px;
+}
