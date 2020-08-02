@@ -56,7 +56,7 @@ for (var  i = 1; i <=16; i++){
                 break;
         }
         var file = document.createElement('div');
-            //file.textContent =  fileNumber + i ;
+            file.textContent =  fileNumber + i ;
             file.classList += 'file '
         rank.append(file)
     }
