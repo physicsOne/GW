@@ -1,6 +1,6 @@
 var battlefield = document.querySelector("#battlefield");
 var fileNumber;
-var fighterPfp = document.querySelector(".fighter-pfp");
+var fighterPfp = document.querySelector(".servants");
 var selectionArea = document.querySelector("#selecting-area");
 var selectionTurn = 'player1'
 function renewMap(){
@@ -76,37 +76,10 @@ renewMap();
 function moveSaber(location){
 
 }
-fighterPfp.addEventListener("click",function(e){
-    e.target.id = 'selected-fighter';
-    e.target.classList += ' movable'
-    var fighterName = e.target.getAttribute("src");
-    battlefield.addEventListener("click",function(g){  
-        //renewMap()
-        console.log(g.target)
-        if(g.target.classList.contains("file")){
-            if(e.target.classList.contains("movable")){
-                var fighterPlace  = document.createElement("img");
-                    fighterPfp.src = fighterName;
-                    fighterPfp.classList += " pfp-icon";
-                var temp = g.target.textContent;
-                console.log(temp)
-                g.target.textContent = ""
-                g.target.append(fighterPfp); 
-                e.target.classList.remove("movable");
-                document.addEventListener("keydown",function(h){
-                   if(h.code === "ArrowUp"){
-                       
-                   }
-                })
-            }    
-        }
-    })
-})
 window.onload = function(){
     selectionArea.scrollIntoView()
 }
 document.querySelector("#selection-area ul").addEventListener("click",function(e){
-    //if(e.target.classList.contains('fighter-pfp')){
     function addServant(whichplayer,what){
         var newServant = document.createElement("img");
             newServant.setAttribute('src',what);
@@ -115,16 +88,39 @@ document.querySelector("#selection-area ul").addEventListener("click",function(e
     }
     var source = e.target.getAttribute("src");
     if(selectionTurn === 'player1'){
-        addServant(document.querySelector("#staging-area-2"),source);
+        addServant(document.querySelector("#staging-area-1 ul"),source);
         selectionTurn = 'player2'
     }else if(selectionTurn === 'player2'){
-        addServant(document.querySelector("#staging-area-1"),source);
+        addServant(document.querySelector("#staging-area-2 ul"),source);
         selectionTurn = 'player1'
     }
-    console.log(e.target.parentNode.parentNode)
     e.target.parentNode.parentNode.removeChild(e.target.parentNode)
-//}
-    console.log(e)
+})
+
+fighterPfp.addEventListener("click",function(e){
+    if(e.target.classList.contains('fighter-pfp')){
+        console.log(e.target);
+        if(document.querySelector("#selected-fighter")){document.querySelector("#selected-fighter").id = ''}
+        e.target.id = 'selected-fighter';
+        e.target.classList += ' movable'
+        var fighterName = e.target.getAttribute("src");
+        battlefield.addEventListener("click",function(g){  
+            //renewMap()
+            console.log(g.target)
+            if(g.target.classList.contains("file")){
+                if(e.target.id === 'selected-fighter'){
+                    var fighterPlace  = document.createElement("img");
+                        fighterPfp.src = fighterName;
+                        fighterPfp.classList += " pfp-icon";
+                    var temp = g.target.textContent;
+                    console.log(temp)
+                    g.target.textContent = ""
+                    g.target.append(fighterPfp); 
+                }
+            }
+        })
+    }
+    
 })
 // testing area
 
