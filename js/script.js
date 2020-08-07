@@ -2,10 +2,16 @@ var battlefield = document.querySelector("#battlefield");
 var fileNumber;
 var fighterPfp = document.querySelector(".fighter-pfp");
 function renewMap(){
+    if(document.querySelector("#operator")){
+        battlefield.removeChild(document.querySelector("#operator"))
+    }
+    var operator = document.createElement("div");
+        operator.id = "operator";
+    battlefield.appendChild(operator)
     for (var  i = 1; i <=16; i++){  
         var rank = document.createElement("div");
             rank.classList+= "rank";
-        battlefield.append(rank)
+        operator.append(rank)
         for (var  a = 1; a <=16; a++){
             switch (a){
                 case 1 :
@@ -65,21 +71,41 @@ function renewMap(){
     }
 }
 renewMap();
+function moveSaber(location){
+
+}
 fighterPfp.addEventListener("click",function(e){
     e.target.id = 'selected-fighter';
+    e.target.classList += ' movable'
     var fighterName = e.target.getAttribute("src");
-    battlefield.addEventListener("click",function(g){
+    battlefield.addEventListener("click",function(g){  
+        //renewMap()
         console.log(g.target)
         if(g.target.classList.contains("file")){
-            var fighterPlace  = document.createElement("img");
-                fighterPfp.src = fighterName;
-                fighterPfp.classList += " pfp-icon";
-            g.target.textContent = ""
-            g.target.append(fighterPfp);     
-            battlefield.removeEventListener("click",function(){}) ;
+            if(e.target.classList.contains("movable")){
+                var fighterPlace  = document.createElement("img");
+                    fighterPfp.src = fighterName;
+                    fighterPfp.classList += " pfp-icon";
+                var temp = g.target.textContent;
+                console.log(temp)
+                g.target.textContent = ""
+                g.target.append(fighterPfp); 
+                e.target.classList.remove("movable");
+                document.addEventListener("keydown",function(h){
+                   if(h.code === "ArrowUp"){
+                       
+                   }
+                })
+            }    
         }
     })
 })
+
+
+// testing area
+
+//console.log(document.querySelectorAll(".file"))
+
 /*
 for (var i = 0; i < 16; i+=2){
     document.querySelectorAll(".file")[i].classList+=" alt-1"
