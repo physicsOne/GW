@@ -69,7 +69,7 @@
     cursor: pointer;
 }
 #selection-area ul li {
-    width: 15%;
+    width: 25%;
     display: inline-block;
     border: 1px solid black;
 }

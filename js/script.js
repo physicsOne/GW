@@ -1,6 +1,7 @@
 var battlefield = document.querySelector("#battlefield");
 var fileNumber;
 var fighterPfp = document.querySelector(".fighter-pfp");
+var selectionArea = document.querySelector("#selecting-area")
 function renewMap(){
     if(document.querySelector("#operator")){
         battlefield.removeChild(document.querySelector("#operator"))
@@ -100,8 +101,12 @@ fighterPfp.addEventListener("click",function(e){
         }
     })
 })
-
-
+window.onload = function(){
+    selectionArea.scrollIntoView()
+}
+document.querySelector(".selection-pic").addEventListener("click",function(e){
+    var source = e.target.getAttribute("src")
+})
 // testing area
 
 //console.log(document.querySelectorAll(".file"))
