@@ -57,7 +57,6 @@
     float: left;
     min-height: 100vh;
     width: 100%;
-    border: 10px solid black;
 }
 .selection-pic{
     width: 100%;
@@ -69,7 +68,6 @@
     cursor: pointer;
 }
 #selection-area ul li {
-    width: 25%;
+    width: 24%;
     display: inline-block;
-    border: 1px solid black;
 }

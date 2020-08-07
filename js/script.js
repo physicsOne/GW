@@ -1,7 +1,8 @@
 var battlefield = document.querySelector("#battlefield");
 var fileNumber;
 var fighterPfp = document.querySelector(".fighter-pfp");
-var selectionArea = document.querySelector("#selecting-area")
+var selectionArea = document.querySelector("#selecting-area");
+var selectionTurn = 'player1'
 function renewMap(){
     if(document.querySelector("#operator")){
         battlefield.removeChild(document.querySelector("#operator"))
@@ -104,8 +105,26 @@ fighterPfp.addEventListener("click",function(e){
 window.onload = function(){
     selectionArea.scrollIntoView()
 }
-document.querySelector(".selection-pic").addEventListener("click",function(e){
-    var source = e.target.getAttribute("src")
+document.querySelector("#selection-area ul").addEventListener("click",function(e){
+    //if(e.target.classList.contains('fighter-pfp')){
+    function addServant(whichplayer,what){
+        var newServant = document.createElement("img");
+            newServant.setAttribute('src',what);
+            newServant.className += ' fighter-pfp';
+        whichplayer.append(newServant)
+    }
+    var source = e.target.getAttribute("src");
+    if(selectionTurn === 'player1'){
+        addServant(document.querySelector("#staging-area-2"),source);
+        selectionTurn = 'player2'
+    }else if(selectionTurn === 'player2'){
+        addServant(document.querySelector("#staging-area-1"),source);
+        selectionTurn = 'player1'
+    }
+    console.log(e.target.parentNode.parentNode)
+    e.target.parentNode.parentNode.removeChild(e.target.parentNode)
+//}
+    console.log(e)
 })
 // testing area
 
