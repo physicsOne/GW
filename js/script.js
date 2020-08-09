@@ -98,29 +98,30 @@ document.querySelector("#selection-area ul").addEventListener("click",function(e
 })
 
 fighterPfp.addEventListener("click",function(e){
-    if(e.target.classList.contains('fighter-pfp')){
-        console.log(e.target);
-        if(document.querySelector("#selected-fighter")){document.querySelector("#selected-fighter").id = ''}
-        e.target.id = 'selected-fighter';
-        e.target.classList += ' movable'
-        var fighterName = e.target.getAttribute("src");
-        battlefield.addEventListener("click",function(g){  
-            //renewMap()
-            console.log(g.target)
-            if(g.target.classList.contains("file")){
-                if(e.target.id === 'selected-fighter'){
-                    var fighterPlace  = document.createElement("img");
-                        fighterPfp.src = fighterName;
-                        fighterPfp.classList += " pfp-icon";
-                    var temp = g.target.textContent;
-                    console.log(temp)
-                    g.target.textContent = ""
-                    g.target.append(e.target); 
-                }
-            }
-        })
-    }
-    
+    console.log(e)
+    var fighterPlace = document.createElement("img");
+        fighterPlace.setAttribute('src',e.target.getAttribute('src'));
+        fighterPlace.classList += 'fighter-pfp' 
+    battlefield.addEventListener("click",function(g){
+        if(g.target.classList.contains("file")){
+            g.target.textContent = ''
+            g.target.append(fighterPlace);
+            fighterPlace = ''
+        }
+    })
+})
+document.querySelector(".servants-2").addEventListener("click",function(e){
+    console.log(e)
+    var fighterPlace = document.createElement("img");
+        fighterPlace.setAttribute('src',e.target.getAttribute('src'));
+        fighterPlace.classList += 'fighter-pfp' 
+    battlefield.addEventListener("click",function(g){
+        if(g.target.classList.contains("file")){
+            g.target.textContent = ''
+            g.target.append(fighterPlace);
+            fighterPlace = ''
+        }
+    })
 })
 // testing area
 
