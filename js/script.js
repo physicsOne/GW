@@ -115,7 +115,7 @@ fighterPfp.addEventListener("click",function(e){
                     var temp = g.target.textContent;
                     console.log(temp)
                     g.target.textContent = ""
-                    g.target.append(fighterPfp); 
+                    g.target.append(e.target); 
                 }
             }
         })
