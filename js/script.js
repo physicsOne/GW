@@ -106,7 +106,6 @@ fighterPfp.addEventListener("click",function(e){
         if(g.target.classList.contains("file")){
             g.target.textContent = ''
             g.target.append(fighterPlace);
-            fighterPlace = ''
         }
     })
 })
