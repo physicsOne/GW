@@ -66,7 +66,7 @@ function renewMap(){
                     break;
             }
             var file = document.createElement('div');
-                file.textContent =  fileNumber + i ;
+                //file.textContent =  fileNumber + i ;
                 file.classList += 'file '
             rank.append(file)
         }
@@ -98,26 +98,24 @@ document.querySelector("#selection-area ul").addEventListener("click",function(e
 })
 
 fighterPfp.addEventListener("click",function(e){
-    console.log(e)
     var fighterPlace = document.createElement("img");
         fighterPlace.setAttribute('src',e.target.getAttribute('src'));
-        fighterPlace.classList += 'fighter-pfp' 
+        fighterPlace.classList += 'fighter-pfp'
     battlefield.addEventListener("click",function(g){
         if(g.target.classList.contains("file")){
-            g.target.textContent = ''
             g.target.append(fighterPlace);
+            fighterPlace = ''
         }
     })
 })
 document.querySelector(".servants-2").addEventListener("click",function(e){
-    console.log(e)
-    var fighterPlace = document.createElement("img");
-        fighterPlace.setAttribute('src',e.target.getAttribute('src'));
-        fighterPlace.classList += 'fighter-pfp' 
+    var fighterPlace2 = document.createElement("img");
+        fighterPlace2.setAttribute('src',e.target.getAttribute('src'));
+        fighterPlace2.classList += 'fighter-pfp' 
     battlefield.addEventListener("click",function(g){
         if(g.target.classList.contains("file")){
-            g.target.textContent = ''
-            g.target.append(fighterPlace);
+            g.target.append(fighterPlace2);
+            fighterPlace2 = ''
         }
     })
 })
